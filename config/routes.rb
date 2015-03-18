@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :users, only: [:show, :index]
+  resources :friendships, only: [:create, :destroy ] do
+    member do 
+      put :accept
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
