@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show] 
   before_action :authenticate_user!, only: [:index]
   def show
+    @post = Post.new
     @activities = PublicActivity::Activity.where(owner_id: @user.id) + PublicActivity::Activity.where(recipient_id: @user.id)
+    @posts = @user.posts
   end
   def index
   	case params[:people]
