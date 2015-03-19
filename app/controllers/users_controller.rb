@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   def show
     @post = Post.new
-    @activities = PublicActivity::Activity.where(owner_id: @user.id) + PublicActivity::Activity.where(recipient_id: @user.id)
-    @posts = @user.posts
+    @activities = PublicActivity::Activity.where(owner_id: @user.id).order('created_at DESC') 
+    @posts = @user.posts.order('created_at DESC')
   end
   def index
   	case params[:people]
