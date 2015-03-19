@@ -5,14 +5,43 @@
   			<%= gravatar_tag @user.email, size: 200%>
   		</div>
   		<div class="col-md-4">
-  		<h3><%= @user.username %></h3>	
-  		<p>Age: <%= @user.age%></p>
-		<p>Gender: <%= @user.gender%></p>
-  		</div>
-  		<div class="col-md-4">
-  		<h3>Who am I</h3>
-  		<small><%= @user.bio%></small>
-  		</div>
-  	</div>
+        <h3><%= @user.username %></h3>	
+        <p>Age: <%= @user.age%></p>
+        <p>Gender: <%= @user.gender%></p>
+      </div>
+      <div class="col-md-4">
+        <h3>Who am I</h3>
+        <small><%= @user.bio%></small>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "container">
+  <div class="row">
+    <!--Friend zone-->
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">Friends(<%=@user.active_friends.count%>)</div>
+        <div class="panel-body">
+        <%@user.active_friends.last(16).each do |friend|%>
+        <%=link_to user_path(friend.username) do%>
+        <%=gravatar_tag friend.email, size: 40%>
+        <%end%>
+        <%end%>
+        </div>
+      </div>
+
+    </div>
+    <!--posts-->
+    <div class = "col-md-6">
+
+    </div>
+    <!--Activity-->
+    <div class = "col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">Recent Activity</div>
+        <div class="panel-body"><%= render_activities(@activities)%></div>
+      </div>
+    </div>
   </div>
 </div>
