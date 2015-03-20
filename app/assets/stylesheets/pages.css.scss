@@ -16,10 +16,14 @@ body {
 
 }
 .landing { 
-  background: image-url("bg.jpg") no-repeat center center fixed; 
+  background: image-url("forest.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
 }
+.transparent{
+  background:rgba(255,255,255,0.7);
+}
+
