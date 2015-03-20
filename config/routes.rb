@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
   end
   resources :posts, only: [:create, :edit, :destroy, :update]
+  resources :activities, only: [:index]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
