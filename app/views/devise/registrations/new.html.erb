@@ -1,18 +1,24 @@
+<div class="container">
+<div class="row">
+<div class="col-md-6">
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html:{class: "form-horizontal"}) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-  <%= f.input :username, required: true, autofocus: true %>
-    <%= f.input :email, required: true%>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
-    <%= f.input :password_confirmation, required: true %>
+  <div class="form-group">
+  <%= f.input :username, label: false, placeholder: "Username", required: true, autofocus: true, input_html: {class: "form-control"}  %><br>
+    <%= f.input :email, label: false, placeholder: "Email", required: true, input_html: {class: "form-control"} %><br>
+    <%= f.input :password, label: false, placeholder: "Password", required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable), input_html: {class: "form-control"}  %><br>
+    <%= f.input :password_confirmation, label: false, placeholder: "Confirm Pasword", required: true, input_html: {class: "form-control"}  %><br>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-group">
+    <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
+</div>
 
+</div>
 <%= render "devise/shared/links" %>
+</div>

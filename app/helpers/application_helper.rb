@@ -11,4 +11,9 @@ module ApplicationHelper
 			"alert alert-info"
 		end
 	end
+	def request_count
+	  	if current_user 
+	  		current_user.pending_friend_requests_from.count
+	  	end
+  end
 end
